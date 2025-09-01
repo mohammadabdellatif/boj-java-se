@@ -8,14 +8,14 @@ public class ArrayTest {
         int[][] matrix = new int[2][2];
         matrix[0][0] = 1;
         Point[] points = new Point[2];
-        points[0] = new Point();
-        points[1] = new Point();
+        points[0] = new Point(0,1);
+        points[1] = new Point(10,10);
 
-        points[0].x = 1;
-        points[0].y = 2;
+        points[0].move(1, 2);
 
         Point temp = points[1];
-        temp.x = 3;
-        temp.y = 4;
+        temp.atCenter();
+        temp.quadrantIdx();
+//        temp.isXNegative();
     }
 }

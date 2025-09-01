@@ -13,20 +13,18 @@ public class StackTraceDemo2 {
     public static Point createPoint(int xPost, int yPost) {
         xPost++;
         yPost--;
-        Point p = new Point();
-        p.set(xPost, yPost);
+        Point p = new Point(xPost, yPost);
+//        p.move(xPost, yPost);
         return p;
     }
 
     public static void movePoint(Point p1) {
-        p1 = new Point();
-        int newX = p1.x + 1;
-        int newY = p1.y - 1;
-        p1.set(newX, newY);
+        p1 = new Point(0, 0);
+        p1.moveRight();
+        p1.moveDown();
     }
 
     private static void printPoint(Point p) {
         System.out.println(p.quadrantIdx());
-        System.out.println(p.x + "," + p.y);
     }
 }
