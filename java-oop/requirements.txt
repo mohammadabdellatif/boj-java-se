@@ -1,0 +1,41 @@
+Open account request use case:
+Inputs:
+Name - 4 syllabus
+Customer ID and type
+Nationality
+mobile no
+email
+gender
+birth date and country
+address (country, city, region, street)
+Account currency and Type
+Wealth source
+   amount
+   currency
+   type
+
+Output:
+  CIF
+  Generated Account ID
+
+
+process:
+Validations:
+- Name of 4 syllable words
+- Customer ID: validate with government database to ensure correctness
+- Nationality is valid
+- Currency must be supported
+- validate mobile no format
+- validate email format
+- Birthdate should be +18
+- Address validation
+- Customer doesn't exist before
+- Screening for his name
+
+If valid
+- Generate CIF
+- Generate Account number and it's IBAN depending on the CIF
+- Create Account
+- Push SMS notification
+
+- success return CIF, Account, and IBAN
