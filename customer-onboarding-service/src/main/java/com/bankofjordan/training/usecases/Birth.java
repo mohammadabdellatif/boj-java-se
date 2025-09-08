@@ -1,4 +1,4 @@
-package com.bankofjordan.training;
+package com.bankofjordan.training.usecases;
 
 import java.time.LocalDate;
 

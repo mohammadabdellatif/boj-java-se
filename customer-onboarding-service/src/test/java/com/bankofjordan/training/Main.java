@@ -1,5 +1,7 @@
 package com.bankofjordan.training;
 
+import com.bankofjordan.training.usecases.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Currency;
@@ -8,9 +10,9 @@ public class Main {
     public static void main(String[] args) {
         OpenQuickAccountInput input = createInput();
 
-        OpenQuickAccountHandler handler = new OpenQuickAccountHandler(null);
-        OpenQuickAccountOutput output = handler.open(input);
-        System.out.println(output);
+//        OpenQuickAccountHandler handler = new OpenQuickAccountHandler(null);
+//        OpenQuickAccountOutput output = handler.open(input);
+//        System.out.println(output);
     }
 
     private static OpenQuickAccountInput createInput() {
