@@ -1,4 +1,4 @@
-package com.bankofjordan.training.usecases;
+package com.bankofjordan.training.usecases.open;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,5 +1,6 @@
-package com.bankofjordan.training.usecases;
+package com.bankofjordan.training.usecases.open;
 
+import com.bankofjordan.training.Handler;
 import com.bankofjordan.training.integrator.CivilDepIntegrator;
 import com.bankofjordan.training.integrator.Screening;
 import com.bankofjordan.training.repository.Customer;
@@ -7,7 +8,7 @@ import com.bankofjordan.training.repository.CustomerRepository;
 
 import java.time.LocalDate;
 
-public class OpenQuickAccountHandler {
+public class OpenQuickAccountHandler implements Handler {
     // Facade Design pattern
     //  interface for complex business (logic)
 

@@ -1,8 +1,8 @@
 package com.bankofjordan.training.repository;
 
-import com.bankofjordan.training.usecases.Birth;
-import com.bankofjordan.training.usecases.ResidenceAddress;
-import com.bankofjordan.training.usecases.WealthSource;
+import com.bankofjordan.training.usecases.open.Birth;
+import com.bankofjordan.training.usecases.open.ResidenceAddress;
+import com.bankofjordan.training.usecases.open.WealthSource;
 
 public class Customer {
 

@@ -1,6 +1,6 @@
 package com.bankofjordan.training;
 
-import com.bankofjordan.training.usecases.*;
+import com.bankofjordan.training.usecases.open.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
