@@ -13,11 +13,11 @@ public class WealthSource {
     private final String incomeType;
 
     public WealthSource(BigDecimal amount, Currency currency, String incomeType) {
-        if(!isValidAmount(amount))
+        if (!isValidAmount(amount))
             throw new IllegalArgumentException("Invalid amount");
-        if(currency == null)
+        if (currency == null)
             throw new IllegalArgumentException("Invalid currency");
-        if(!INCOME_TYPES.contains(incomeType))
+        if (!INCOME_TYPES.contains(incomeType))
             throw new IllegalArgumentException("Invalid income type");
         this.amount = amount;
         this.currency = currency;
@@ -38,5 +38,16 @@ public class WealthSource {
 
     public String getIncomeType() {
         return incomeType;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("WealthSource{");
+        sb.append("INCOME_TYPES=").append(INCOME_TYPES);
+        sb.append(", amount=").append(amount);
+        sb.append(", currency=").append(currency);
+        sb.append(", incomeType='").append(incomeType).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

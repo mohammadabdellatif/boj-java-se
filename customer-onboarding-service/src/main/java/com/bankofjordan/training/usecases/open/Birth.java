@@ -26,4 +26,13 @@ public class Birth {
     public String getCountry() {
         return country;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Birth{");
+        sb.append("dateOfBirth=").append(dateOfBirth);
+        sb.append(", country='").append(country).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

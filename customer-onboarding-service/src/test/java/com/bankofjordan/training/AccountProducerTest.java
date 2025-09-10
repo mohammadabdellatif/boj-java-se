@@ -10,5 +10,7 @@ public class AccountProducerTest {
         Account account = producer.produce("250908191000");
         System.out.println(account.getNumber());
         System.out.println(account.getIban());
+
+        System.out.println(account);
     }
 }

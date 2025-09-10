@@ -90,4 +90,20 @@ public class OpenQuickAccountInput {
     public WealthSource getWealthSource() {
         return wealthSource;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("OpenQuickAccountInput{");
+        sb.append("customerId='").append(customerId).append('\'').append("\n");
+        sb.append(", customerIdType='").append(customerIdType).append('\'').append("\n");
+        sb.append(", name='").append(name).append('\'').append("\n");
+        sb.append(", gender='").append(gender).append('\'').append("\n");
+        sb.append(", nationality='").append(nationality).append('\'').append("\n");
+        sb.append(", birth=").append(birth).append("\n");
+        sb.append(", residenceAddress=").append(residenceAddress).append("\n");
+        sb.append(", contactInfo=").append(contactInfo).append("\n");
+        sb.append(", wealthSource=").append(wealthSource).append("\n");
+        sb.append('}');
+        return sb.toString();
+    }
 }

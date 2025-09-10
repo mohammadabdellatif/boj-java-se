@@ -1,6 +1,6 @@
 package com.bankofjordan.training.usecases.open;
 
-public class Account {
+public class Account extends Object {
     private String number;
     private String iban;
 
@@ -15,5 +15,10 @@ public class Account {
 
     public String getIban() {
         return iban;
+    }
+
+    @Override
+    public String toString() {
+        return "Account [number=" + number + ", iban=" + iban + "]";
     }
 }

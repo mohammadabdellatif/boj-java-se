@@ -61,7 +61,12 @@ public class Main {
 
             @Override
             public void screen(Input input) {
-                throw new IllegalStateException("The customer is terrorism suspect");
+//                try {
+//                    Thread.currentThread().sleep(5000);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                throw new IllegalStateException("The customer is terrorism suspect");
             }
         };
         return screening;

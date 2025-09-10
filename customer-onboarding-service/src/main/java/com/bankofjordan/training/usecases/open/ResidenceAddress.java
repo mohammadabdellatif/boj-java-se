@@ -48,4 +48,16 @@ public class ResidenceAddress {
     public String getPostalCode() {
         return postalCode;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ResidenceAddress{");
+        sb.append("street='").append(street).append('\'');
+        sb.append(", region='").append(region).append('\'');
+        sb.append(", city='").append(city).append('\'');
+        sb.append(", county='").append(county).append('\'');
+        sb.append(", postalCode='").append(postalCode).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

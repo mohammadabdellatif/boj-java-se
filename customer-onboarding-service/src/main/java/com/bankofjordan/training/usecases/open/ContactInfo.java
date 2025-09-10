@@ -31,4 +31,13 @@ public class ContactInfo {
     public String getMobileNo() {
         return mobileNo;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ContactInfo{");
+        sb.append("mobileNo='").append(mobileNo).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
