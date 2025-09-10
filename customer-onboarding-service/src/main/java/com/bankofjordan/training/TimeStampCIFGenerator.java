@@ -10,7 +10,6 @@ public class TimeStampCIFGenerator implements CIFGenerator {
     @Override
     public String generate() {
         LocalDateTime now = LocalDateTime.now();
-        String cif = now.format(DateTimeFormatter.ofPattern("yyMMddHHmmss"));
-        return cif;
+        return now.format(DateTimeFormatter.ofPattern("yyMMddHHmmss"));
     }
 }

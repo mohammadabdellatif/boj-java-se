@@ -23,9 +23,8 @@ public class Main {
     private static OpenQuickAccountHandler createOpenQuickAccountHandler() {
         // Polymorphism (dependency construction)
         CustomerRepository customerRepository = new InMemoryCustomerRepository();
-        CivilDepIntegrator civilDepIntegrator = new AlwaysValidCivilDepIntegrator();
-//        Screening screening = new AlwaysFailScreening();
-        Screening screening = screening();
+        CivilDepIntegrator civilDepIntegrator = CivilDepIntegrator.ALWAYS_VALID;
+        Screening screening = Screening.ALWAYS_ACCEPT;
         CIFGenerator cifGenerator = new TimeStampCIFGenerator();
         AccountProducer accountProducer = new DigitalBranchAccountProducer("BJOR", "1101");
 
@@ -61,14 +60,21 @@ public class Main {
 
             @Override
             public void screen(Input input) {
-//                try {
-//                    Thread.currentThread().sleep(5000);
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                throw new IllegalStateException("The customer is terrorism suspect");
+                System.out.println("Screening is always valid");
             }
         };
+
+        // Lambda expression
+        Screening s2 = (Screening.Input input) -> {
+            System.out.println("screening 2");
+        };
+
+        Screening s3 = (i) -> {
+            System.out.println("screening 3");
+        };
+
+        Screening s4 = i -> System.out.println("screening 4");
+
         return screening;
     }
 }

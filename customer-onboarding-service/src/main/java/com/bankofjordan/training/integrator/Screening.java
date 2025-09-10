@@ -1,6 +1,9 @@
 package com.bankofjordan.training.integrator;
 
+// Functional interface
 public interface Screening {
+
+    public static final Screening ALWAYS_ACCEPT = (input) -> { };
 
     void screen(Input input);
 
