@@ -15,9 +15,9 @@ public class DBConnectivityTest {
         // jdbc:h2:file:~/testdb
 
 //        String url = "jdbc:h2:tcp://localhost:9092/customer_db";
-        String url = "jdbc:h2:file:./customer_db";
-        String username = "sa";
-        String password = "sa";
+        String url = "jdbc:oracle:thin:@192.168.1.142:1521:XE";
+        String username = "pps";
+        String password = "pps";
         // This is your connection to the DB engine and your session
         try {
             try (Connection connection = DriverManager.getConnection(url, username, password)) {
@@ -27,19 +27,25 @@ public class DBConnectivityTest {
                 System.out.println(metaData.getDatabaseProductVersion());
 
                 try (Statement statement = connection.createStatement()) {
+                    statement.execute("create table customer\n" +
+                            "(\n" +
+                            "    id           number(10) primary key,\n" +
+                            "    cust_id      varchar2(30),\n" +
+                            "    cust_id_type varchar2(50)\n" +
+                            ")");
                     // CRUD operations
 //                    statement.executeUpdate("ALTER table BOJ_CUSTOMERS rename column CUT_ID_TYPE to CUST_ID_TYPE");
 //                    int affectedRecords = statement.executeUpdate("INSERT INTO BOJ_CUSTOMERS VALUES (5, '12345','nid')");
 //                    System.out.println("updated: " + affectedRecords);
-                    try (ResultSet resultSet = statement.executeQuery("SELECT ID, CUST_ID,CUST_ID_TYPE FROM BOJ_CUSTOMERS")) {
-                        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-                        for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++)
-                            System.out.print(resultSetMetaData.getColumnLabel(i) + " ");
-                        System.out.println();
-                        while (resultSet.next()) {
-                            System.out.println(resultSet.getString(1) + " " + resultSet.getString("CUST_ID") + " " + resultSet.getString(3));
-                        }
-                    }
+//                    try (ResultSet resultSet = statement.executeQuery("SELECT ID, CUST_ID,CUST_ID_TYPE FROM BOJ_CUSTOMERS")) {
+//                        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+//                        for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++)
+//                            System.out.print(resultSetMetaData.getColumnLabel(i) + " ");
+//                        System.out.println();
+//                        while (resultSet.next()) {
+//                            System.out.println(resultSet.getString(1) + " " + resultSet.getString("CUST_ID") + " " + resultSet.getString(3));
+//                        }
+//                    }
                 }
             }
 //            connection.close();
