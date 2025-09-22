@@ -12,7 +12,9 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Currency;
+import java.util.List;
 
 public class CustomerRepoTest2 {
 
@@ -28,12 +30,19 @@ public class CustomerRepoTest2 {
 
         CustomerRepository customerRepository = new JDBCCustomerRepository(dataSource);
 
+        List<Customer> customers = Arrays.asList(
+                customer("9851016624", "NID"),
+                customer("9851016625", "NID"));
+        customerRepository.save(customers);
+    }
+
+    private static Customer customer(String id, String idType) {
         Birth birth = new Birth(LocalDate.of(1985, 10, 10), "Jordan");
         ResidenceAddress address = new ResidenceAddress("ammand", "amman", "amman", "Jordan", "111101");
         WealthSource wealthSource = new WealthSource(BigDecimal.valueOf(1000), Currency.getInstance("JOD"),
                 "salary");
-        Customer customer = new Customer("9851016621",
-                "NID",
+        Customer customer = new Customer(id,
+                idType,
                 "Mohammad Abdellatif",
                 "Jordanian",
                 "MALE",
@@ -41,6 +50,6 @@ public class CustomerRepoTest2 {
                 birth,
                 address,
                 wealthSource);
-        customerRepository.save(customer);
+        return customer;
     }
 }
