@@ -1,9 +1,8 @@
-package com.bankofjordan.services.entities;
+package com.bankofjordan.services.entities.examples;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 

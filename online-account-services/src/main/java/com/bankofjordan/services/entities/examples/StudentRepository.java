@@ -1,6 +1,5 @@
-package com.bankofjordan.services.repository;
+package com.bankofjordan.services.entities.examples;
 
-import com.bankofjordan.services.entities.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

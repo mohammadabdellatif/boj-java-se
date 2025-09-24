@@ -1,4 +1,4 @@
-package com.bankofjordan.services.entities;
+package com.bankofjordan.services.entities.examples;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

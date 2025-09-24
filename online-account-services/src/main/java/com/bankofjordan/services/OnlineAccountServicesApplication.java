@@ -1,9 +1,11 @@
 package com.bankofjordan.services;
 
-import com.bankofjordan.services.entities.Course;
-import com.bankofjordan.services.entities.Department;
-import com.bankofjordan.services.entities.Student;
-import com.bankofjordan.services.repository.StudentRepository;
+import com.bankofjordan.services.entities.CustomerEntity;
+import com.bankofjordan.services.entities.CustomerEntityRepository;
+import com.bankofjordan.services.entities.examples.Course;
+import com.bankofjordan.services.entities.examples.Department;
+import com.bankofjordan.services.entities.examples.Student;
+import com.bankofjordan.services.entities.examples.StudentRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.boot.SpringApplication;
@@ -24,14 +26,20 @@ public class OnlineAccountServicesApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(OnlineAccountServicesApplication.class, args);
 
+        CustomerEntityRepository repository = applicationContext.getBean(CustomerEntityRepository.class);
+
+        boolean exists = repository.existsByCustomerIdAndCustomerIdType("9851016621", "NID");
+        System.out.println("exists: " + exists);
+        System.out.println("done");
+    }
+
+    private static void springData2(ConfigurableApplicationContext applicationContext) {
         StudentRepository studentRepository = applicationContext.getBean(StudentRepository.class);
 
         List<Student> byCoursesName = studentRepository.findByCoursesName("Statistics 101");
         for (Student student : byCoursesName) {
             System.out.println(student.getName());
         }
-
-        System.out.println("done");
     }
 
     private static void springData1(StudentRepository studentRepository) {
