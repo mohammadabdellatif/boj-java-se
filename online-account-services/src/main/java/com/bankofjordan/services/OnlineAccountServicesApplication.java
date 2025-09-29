@@ -6,6 +6,8 @@ import com.bankofjordan.services.entities.examples.Course;
 import com.bankofjordan.services.entities.examples.Department;
 import com.bankofjordan.services.entities.examples.Student;
 import com.bankofjordan.services.entities.examples.StudentRepository;
+import com.bankofjordan.services.open.*;
+import com.bankofjordan.services.repository.CustomerRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +20,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Currency;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +31,35 @@ public class OnlineAccountServicesApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(OnlineAccountServicesApplication.class, args);
 
+
+        OpenQuickAccountHandler openQuickAccountHandler = applicationContext.getBean(OpenQuickAccountHandler.class);
+
+        OpenQuickAccountOutput output = openQuickAccountHandler.open(createInput());
+
+        System.out.println(output.getCif());
+        System.out.println(output.getIban());
+
+        System.out.println("done");
+    }
+
+    private static OpenQuickAccountInput createInput() {
+        Birth birth = new Birth(LocalDate.of(2005, 10, 17), "KW");
+        ResidenceAddress residenceAddress = new ResidenceAddress("Khalifa Street", "Al-Mansoura", "Jordan", "Jordan", "12345");
+        ContactInfo contactInfo = new ContactInfo("0799409461", "mohammad.s.abdellatif@gmail.com");
+        WealthSource wealthSource = new WealthSource(BigDecimal.valueOf(1000), Currency.getInstance("JOD"), "salary");
+        OpenQuickAccountInput input = new OpenQuickAccountInput("9851016641",
+                "NID",
+                "mohammad shawkat abdullah abdellatif",
+                "male",
+                "JOR",
+                birth,
+                residenceAddress,
+                contactInfo,
+                wealthSource);
+        return input;
+    }
+
+    private static void persistEntity(ConfigurableApplicationContext applicationContext) {
         CustomerEntityRepository repository = applicationContext.getBean(CustomerEntityRepository.class);
 
         CustomerEntity customer = new CustomerEntity();
@@ -47,8 +79,6 @@ public class OnlineAccountServicesApplication {
         customer.setStreet("Amman");
 
         repository.save(customer);
-
-        System.out.println("done");
     }
 
     private static void springData2(ConfigurableApplicationContext applicationContext) {
