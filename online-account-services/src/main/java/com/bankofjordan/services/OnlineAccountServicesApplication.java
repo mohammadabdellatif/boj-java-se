@@ -34,10 +34,16 @@ public class OnlineAccountServicesApplication {
 
         OpenQuickAccountHandler openQuickAccountHandler = applicationContext.getBean(OpenQuickAccountHandler.class);
 
-        OpenQuickAccountOutput output = openQuickAccountHandler.open(createInput());
 
-        System.out.println(output.getCif());
-        System.out.println(output.getIban());
+        System.out.println("current thread: " + Thread.currentThread().getName());
+        Thread thread = new Thread(() -> {
+            System.out.println("current thread: " + Thread.currentThread().getName());
+            OpenQuickAccountOutput output = openQuickAccountHandler.open(createInput());
+            System.out.println(output.getCif());
+            System.out.println(output.getIban());
+        });
+
+        thread.start();// it will start the process later, triggering for a thread to start
 
         System.out.println("done");
     }
@@ -47,7 +53,7 @@ public class OnlineAccountServicesApplication {
         ResidenceAddress residenceAddress = new ResidenceAddress("Khalifa Street", "Al-Mansoura", "Jordan", "Jordan", "12345");
         ContactInfo contactInfo = new ContactInfo("0799409461", "mohammad.s.abdellatif@gmail.com");
         WealthSource wealthSource = new WealthSource(BigDecimal.valueOf(1000), Currency.getInstance("JOD"), "salary");
-        OpenQuickAccountInput input = new OpenQuickAccountInput("9851016641",
+        OpenQuickAccountInput input = new OpenQuickAccountInput("9851016141",
                 "NID",
                 "mohammad shawkat abdullah abdellatif",
                 "male",
