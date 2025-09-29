@@ -14,6 +14,24 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @EqualsAndHashCode
+@SequenceGenerators({
+        @SequenceGenerator(name = "customersSequence",
+                sequenceName = "CUST_ID_SEQ",
+                initialValue = 1,
+                allocationSize = 1),
+        @SequenceGenerator(name = "departmentSequence",
+                sequenceName = "DEPT_ID_SEQ",
+                initialValue = 1,
+                allocationSize = 1)
+})
+@TableGenerators(@TableGenerator(
+        name = "systemSequences",
+        table = "system_sequences",
+        pkColumnName = "seq_name",
+        pkColumnValue = "cust_id_seq",
+        initialValue = 1,
+        allocationSize = 1,
+        valueColumnName = "seq_value"))
 public class CustomerEntity implements Serializable {
 
     public enum Gender {
@@ -21,6 +39,7 @@ public class CustomerEntity implements Serializable {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "systemSequences")
     private Long id;
 
     @Column(name = "cust_id", nullable = false, length = 100)

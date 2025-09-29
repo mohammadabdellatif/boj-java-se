@@ -15,6 +15,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -28,8 +30,24 @@ public class OnlineAccountServicesApplication {
 
         CustomerEntityRepository repository = applicationContext.getBean(CustomerEntityRepository.class);
 
-        boolean exists = repository.existsByCustomerIdAndCustomerIdType("9851016621", "NID");
-        System.out.println("exists: " + exists);
+        CustomerEntity customer = new CustomerEntity();
+        customer.setCustomerId("9851016621");
+        customer.setCustomerIdType("NID");
+        customer.setCustomerName("Mohammad Abdellatif");
+        customer.setCif("789654");
+        customer.setCity("Amman");
+        customer.setCountry("Jordan");
+        customer.setGender(CustomerEntity.Gender.MALE);
+        customer.setAmount(BigDecimal.valueOf(200));
+        customer.setCountryOfBirth("KW");
+        customer.setDateOfBirth(LocalDate.now());
+        customer.setCurrency("JOD");
+        customer.setIncomeType("SALARY");
+        customer.setNationality("Jordanian");
+        customer.setStreet("Amman");
+
+        repository.save(customer);
+
         System.out.println("done");
     }
 
