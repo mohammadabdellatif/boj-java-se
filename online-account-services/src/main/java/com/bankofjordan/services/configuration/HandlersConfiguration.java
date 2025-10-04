@@ -6,6 +6,7 @@ import com.bankofjordan.services.open.AccountProducer;
 import com.bankofjordan.services.open.CIFGenerator;
 import com.bankofjordan.services.open.OpenQuickAccountHandler;
 import com.bankofjordan.services.repository.CustomerRepository;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,11 +19,13 @@ public class HandlersConfiguration {
             Screening screening,
             CivilDepIntegrator civilDepIntegrator,
             CIFGenerator cifGenerator,
-            AccountProducer accountProducer) {
+            AccountProducer accountProducer,
+            ApplicationEventPublisher eventPublisher) {
         return new OpenQuickAccountHandler(customerRepository,
                 civilDepIntegrator,
                 screening,
                 cifGenerator,
-                accountProducer);
+                accountProducer,
+                eventPublisher);
     }
 }

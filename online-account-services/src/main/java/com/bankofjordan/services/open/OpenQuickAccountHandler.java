@@ -5,6 +5,7 @@ import com.bankofjordan.services.integrator.CivilDepIntegrator;
 import com.bankofjordan.services.integrator.Screening;
 import com.bankofjordan.services.repository.Customer;
 import com.bankofjordan.services.repository.CustomerRepository;
+import org.springframework.context.ApplicationEventPublisher;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -44,17 +45,20 @@ public class OpenQuickAccountHandler implements Handler {
     private final Screening screening;
     private final CIFGenerator cifGenerator;
     private final AccountProducer accountProducer;
+    private final ApplicationEventPublisher applicationEventPublisher;
 
     public OpenQuickAccountHandler(CustomerRepository customerRepository,
                                    CivilDepIntegrator civilDepIntegrator,
                                    Screening screening,
                                    CIFGenerator cifGenerator,
-                                   AccountProducer accountProducer) {
+                                   AccountProducer accountProducer,
+                                   ApplicationEventPublisher applicationEventPublisher) {
         this.customerRepository = customerRepository;
         this.civilDepIntegrator = civilDepIntegrator;
         this.screening = screening;
         this.cifGenerator = cifGenerator;
         this.accountProducer = accountProducer;
+        this.applicationEventPublisher = applicationEventPublisher;
     }
 
     public OpenQuickAccountOutput open(OpenQuickAccountInput input) {
@@ -67,6 +71,8 @@ public class OpenQuickAccountHandler implements Handler {
         LOGGER.info("Generated Account: " + account);
         saveCustomer(input, cif);
         LOGGER.info("Done");
+        // publish event (this class is the publisher)
+        this.applicationEventPublisher.publishEvent(new NewQuickAccountEvent(cif));
         return new OpenQuickAccountOutput(cif, account.getNumber(), account.getIban());
     }
 
