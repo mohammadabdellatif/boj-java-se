@@ -1,0 +1,8 @@
+/Customers
+GET: to read a single item /Customers/{id}
+GET: to read a list of items /Customers, you can filter by passing some parameters
+POST: /Customers and you pass the expected body (JSON, XML)
+PUT: /Customers/{id} to update the customer record
+DELETE: /Customers/{id} to delete a customer
+DELETE: /Customers to delete all customers, you can select which items to delete by passing parameters
+HEAD

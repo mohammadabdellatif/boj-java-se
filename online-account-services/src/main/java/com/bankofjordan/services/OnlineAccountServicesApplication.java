@@ -16,6 +16,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -26,26 +27,27 @@ import java.util.Optional;
 
 @SpringBootApplication
 @EnableTransactionManagement
+@EnableWebMvc
 public class OnlineAccountServicesApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(OnlineAccountServicesApplication.class, args);
 
 
-        OpenQuickAccountHandler openQuickAccountHandler = applicationContext.getBean(OpenQuickAccountHandler.class);
+//        OpenQuickAccountHandler openQuickAccountHandler = applicationContext.getBean(OpenQuickAccountHandler.class);
+//
+//
+//        System.out.println("current thread: " + Thread.currentThread().getName());
+//        Thread thread = new Thread(() -> {
+//            System.out.println("current thread: " + Thread.currentThread().getName());
+//            OpenQuickAccountOutput output = openQuickAccountHandler.open(createInput());
+//            System.out.println(output.getCif());
+//            System.out.println(output.getIban());
+//        });
+//
+//        thread.start();// it will start the process later, triggering for a thread to start
 
-
-        System.out.println("current thread: " + Thread.currentThread().getName());
-        Thread thread = new Thread(() -> {
-            System.out.println("current thread: " + Thread.currentThread().getName());
-            OpenQuickAccountOutput output = openQuickAccountHandler.open(createInput());
-            System.out.println(output.getCif());
-            System.out.println(output.getIban());
-        });
-
-        thread.start();// it will start the process later, triggering for a thread to start
-
-        System.out.println("done");
+//        System.out.println("done");
     }
 
     private static OpenQuickAccountInput createInput() {

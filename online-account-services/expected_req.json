@@ -1,0 +1,25 @@
+{
+  "customerId": "9851016631",
+  "customerIdType": "NID",
+  "name": "Mohammad Abdellatif",
+  "gender": "MALE",
+  "nationality": "Jordan",
+  "birth": "1985-03-05",
+  "birthPlace" : "Kuwait",
+  "residenceAddress": {
+    "street": "Amman",
+    "region": "Amman",
+    "city": "Amman",
+    "country": "Jordan",
+    "postalCode": "111101"
+  },
+  "contactInfo": {
+    "mobileNo": "0799409461",
+    "email": "mohammad.abdellatif@gmail.com"
+  },
+  "wealthSource": {
+    "amount": 1000,
+    "currency": "JOD",
+    "incomeType": "SALARY"
+  }
+}

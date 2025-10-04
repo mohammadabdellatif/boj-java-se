@@ -1,0 +1,43 @@
+POST http://localhost:8080/api/v1/openAccount HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: application/json
+Content-Length: 550
+Host: localhost:8080
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.5 (Java/16.0.2)
+
+{
+  "customerId": "9851016731",
+  "customerIdType": "NID",
+  "name": "Mohammad Shawkat Abdullah Abdellatif",
+  "gender": "male",
+  "nationality": "Jordan",
+  "birth": "1985-03-05",
+  "birthPlace" : "Kuwait",
+  "residenceAddress": {
+    "street": "Amman",
+    "region": "Amman",
+    "city": "Amman",
+    "country": "Jordan",
+    "postalCode": "111101"
+  },
+  "contactInfo": {
+    "mobileNo": "0799409461",
+    "email": "mohammad.abdellatif@gmail.com"
+  },
+  "wealthSource": {
+    "amount": 1000,
+    "currency": "JOD",
+    "incomeType": "salary"
+  }
+}
+
+
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sat, 04 Oct 2025 07:57:13 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{"cif":"251004105713","accountNumber":"251004105713500","iban":"JO88BJOR1201000251004105713500"}
