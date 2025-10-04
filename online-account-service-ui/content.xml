@@ -1,0 +1,40 @@
+<Label text="cust_id"/>
+<TextField fx:id="customerId"/>
+
+<Label text="cust_id_type"/>
+<TextField fx:id="customerIdType"/>
+
+<Label text="cust_name"/>
+<TextField fx:id="customerName"/>
+
+<Label text="cust_nat"/>
+<TextField fx:id="nationality"/>
+
+<Label text="cust_gender"/>
+<ComboBox fx:id="gender"></ComboBox>
+
+<Label text="cust_cif"/>
+<TextField fx:id="cif"/>
+
+<Label text="cust_birth_date"/>
+<TextField fx:id="dateOfBirth"/>
+
+<Label text="cust_birth_ctry"/>
+<TextField fx:id="countryOfBirth"/>
+
+<Label text="cust_addr_street"/>
+<TextField fx:id="street"/>
+<Label text="cust_addr_region"/>
+<TextField fx:id="region"/>
+<Label text="cust_addr_city"/>
+<TextField fx:id="city"/>
+<Label text="cust_addr_ctry"/>
+<TextField fx:id="country"/>
+<Label text="cust_addr_pscd"/>
+<TextField fx:id="postalCode"/>
+<Label text="cust_wlth_amnt"/>
+<TextField fx:id="amount"/>
+<Label text="cust_wlth_curr"/>
+<TextField fx:id="currency"/>
+<Label text="cust_wlth_incm_type"/>
+<TextField fx:id="incomeType"/>

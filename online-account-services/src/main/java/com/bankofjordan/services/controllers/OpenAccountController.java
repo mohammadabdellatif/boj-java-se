@@ -1,6 +1,5 @@
 package com.bankofjordan.services.controllers;
 
-import com.bankofjordan.services.entities.CustomerEntity;
 import com.bankofjordan.services.open.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      prefWidth="500"
+      prefHeight="600"
+      fx:controller="com.bankofjordan.training.onlineaccountserviceui.OpenAccountController">
+    <children>
+        <VBox>
+            <children>
+                <TitledPane text="Customer Information">
+                    <content>
+                        <TilePane alignment="CENTER_LEFT" prefColumns="4" prefRows="2">
+                            <Label text="ID" />
+                            <TextField fx:id="customerId" />
+
+                            <Label text="ID Type" />
+                            <ComboBox fx:id="customerIdType">
+                                <value>NID</value>
+                                <value>PID</value>
+                            </ComboBox>
+
+                            <Label text="cust_name" />
+                            <TextField fx:id="customerName" />
+
+                            <Label text="cust_nat" />
+                            <TextField fx:id="nationality" />
+
+                            <Label text="cust_gender" />
+                            <ComboBox fx:id="gender">
+                                <value>MALE</value>
+                                <value>FEMALE</value>
+                            </ComboBox>
+
+                        </TilePane>
+                    </content>
+                </TitledPane>
+                <TitledPane text="Birth">
+                    <content>
+                        <TilePane alignment="CENTER_LEFT" prefColumns="4" prefRows="2">
+
+                            <Label text="cust_birth_date" />
+                            <TextField fx:id="dateOfBirth" />
+
+                            <Label text="cust_birth_ctry" />
+                            <TextField fx:id="countryOfBirth" />
+                        </TilePane>
+                    </content>
+                </TitledPane>
+                <TitledPane text="Address">
+                    <content>
+                        <TilePane alignment="CENTER_LEFT" prefColumns="4" prefRows="2">
+                            <Label text="cust_addr_street" />
+                            <TextField fx:id="street" />
+                            <Label text="cust_addr_region" />
+                            <TextField fx:id="region" />
+                            <Label text="cust_addr_city" />
+                            <TextField fx:id="city" />
+                            <Label text="cust_addr_ctry" />
+                            <TextField fx:id="country" />
+                            <Label text="cust_addr_pscd" />
+                            <TextField fx:id="postalCode" />
+                        </TilePane>
+                    </content>
+                </TitledPane>
+                <TitledPane text="Wealth">
+                    <content>
+                        <TilePane alignment="CENTER_LEFT" prefColumns="4" prefRows="2">
+                            <Label text="cust_wlth_amnt" />
+                            <Spinner fx:id="amount" min="0" max="99999" editable="true" />
+                            <Label text="cust_wlth_curr" />
+                            <TextField fx:id="currency" />
+                            <Label text="cust_wlth_incm_type" />
+                            <TextField fx:id="incomeType" />
+                        </TilePane>
+                    </content>
+                </TitledPane>
+            </children>
+        </VBox>
+        <FlowPane>
+            <children>
+                <FlowPane alignment="CENTER_RIGHT" style="-fx-min-width: 100%;">
+                    <children>
+                        <Button layoutX="23.0" layoutY="87.0" mnemonicParsing="false" text="Save" />
+                        <Button layoutX="-14.0" layoutY="100.0" mnemonicParsing="false" text="Reset" />
+                    </children>
+                </FlowPane>
+            </children>
+        </FlowPane>
+    </children>
+</VBox>
