@@ -20,9 +20,10 @@ public class BasicAuthenticationConfiguration {
         http
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
-                                .requestMatchers("/api/v1/openAccount")
+                                .requestMatchers("api/v1/openAccount")
                                 .authenticated())
-                .httpBasic(Customizer.withDefaults());
+                .httpBasic(Customizer.withDefaults())
+                .csrf(csrf ->  csrf.disable());
         return http.build();
     }
 
